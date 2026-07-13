@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071a35" />
+    <meta
+      name="description"
+      content="MFBench is a staged diagnostic benchmark for multimodal AI in urban fire-safety governance."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MFBench | Multimodal AI for Urban Fire Safety" />
+    <meta
+      property="og:description"
+      content="A staged diagnostic benchmark connecting fire-domain knowledge, multimodal understanding and grounded fire-scene analysis."
+    />
+    <meta property="og:url" content="https://mfbench.github.io/" />
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>MFBench | Multimodal AI for Urban Fire Safety</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="nav-wrap">
+        <a class="brand" href="#top" aria-label="MFBench home">
+          <img src="assets/logo.png" alt="" />
+          <span>MFBench</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <nav id="site-nav" aria-label="Primary navigation">
+          <a href="#overview">Overview</a>
+          <a href="#benchmark">Benchmark</a>
+          <a href="#findings">Findings</a>
+          <a href="#governance">Governance</a>
+          <a href="#resources">Resources</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-glow hero-glow-a"></div>
+        <div class="hero-glow hero-glow-b"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow"><span></span> Multimodal fire-scene intelligence</div>
+            <h1>Task-specific limits of multimodal AI in urban fire-safety governance</h1>
+            <p class="hero-deck">
+              MFBench tests whether strong structured performance is accompanied by visually grounded,
+              consequence-sensitive reasoning when multimodal models interpret real fire scenes.
+            </p>
+
+            <div class="authors" aria-label="Authors">
+              <p>
+                <strong>Hongtao Zheng</strong><sup>1,†</sup>,
+                <strong>Yifei Ding</strong><sup>1,†</sup>,
+                <strong>Tianhang Zhang</strong><sup>1,4</sup>,
+                <strong>Meng Wang</strong><sup>1,3,*</sup>,
+                <strong>Yuxin Zhang</strong><sup>1,5,*</sup>,
+                <strong>Xinyan Huang</strong><sup>1,2,3,*</sup>
+              </p>
+              <span>† Equal contribution · * Corresponding authors</span>
+            </div>
+
+            <div class="hero-actions" aria-label="Project links">
+              <a class="button button-primary" href="https://github.com" target="_blank" rel="noreferrer">
+                Code <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-light" href="https://huggingface.co" target="_blank" rel="noreferrer">
+                Dataset <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-ghost" href="#citation">Paper &amp; citation <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+
+          <div class="hero-mark reveal" aria-hidden="true">
+            <div class="logo-orbit orbit-one"></div>
+            <div class="logo-orbit orbit-two"></div>
+            <div class="logo-plate">
+              <img src="assets/logo.png" alt="" />
+            </div>
+            <div class="signal-card signal-card-one"><b>Grounding</b><span>Visible evidence</span></div>
+            <div class="signal-card signal-card-two"><b>Actionability</b><span>Decision relevance</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="affiliations" aria-label="Author affiliations">
+        <div class="container affiliations-grid">
+          <p><sup>1</sup> Department of Building Environment and Energy Engineering, The Hong Kong Polytechnic University, Hong Kong</p>
+          <p><sup>2</sup> State Key Laboratory of Climate Resilience for Coastal Cities, The Hong Kong Polytechnic University, Hong Kong</p>
+          <p><sup>3</sup> Widemount Dynamics Tech Limited, Kowloon, Hong Kong</p>
+          <p><sup>4</sup> Research Center for Urban Fire Safety Engineering, Zhejiang University, Hangzhou, China</p>
+          <p><sup>5</sup> Department of Urban Management, Kyoto University, Kyoto, Japan</p>
+        </div>
+      </section>
+
+      <section class="section overview" id="overview">
+        <div class="container two-column">
+          <div class="section-heading reveal">
+            <p class="kicker">Why MFBench</p>
+            <h2>Actionable language is not the same as grounded judgment.</h2>
+          </div>
+          <div class="prose reveal">
+            <p>
+              Cities manage fire risk across dense buildings, interdependent infrastructure, transport
+              systems and expanding wildland–urban interfaces. Multimodal large language models can turn
+              visual inputs into fluent recommendations, but fluency alone does not establish that a response
+              is tied to the people, hazards and spatial relationships visible in the scene.
+            </p>
+            <p>
+              MFBench separates these properties. It links fire-domain knowledge, structured image- and
+              video-based questions and rubric-scored open-ended fire-scene analysis within one diagnostic
+              benchmark.
+            </p>
+          </div>
+        </div>
+
+        <div class="container stat-grid" aria-label="Benchmark scale">
+          <article class="stat-card reveal"><strong>600</strong><span>text-only questions</span><small>Stage 1</small></article>
+          <article class="stat-card reveal"><strong>120</strong><span>image- and video-text questions</span><small>Stage 2</small></article>
+          <article class="stat-card reveal"><strong>1,000</strong><span>real-world fire scenes</span><small>Stage 3</small></article>
+          <article class="stat-card reveal"><strong>25</strong><span>models in the evaluation pool</span><small>Up to</small></article>
+        </div>
+      </section>
+
+      <section class="section benchmark" id="benchmark">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="kicker">Benchmark design</p>
+            <h2>Three stages, one diagnostic question</h2>
+            <p>Does structured competence remain grounded when models must reason and communicate under incomplete evidence?</p>
+          </div>
+
+          <div class="stage-grid">
+            <article class="stage-card reveal">
+              <div class="stage-number">01</div>
+              <p class="stage-label">Knowledge</p>
+              <h3>Fire-domain foundations</h3>
+              <p>Permutation-robust multiple-choice evaluation across fire science, buildings, investigation, evacuation and medicine.</p>
+              <ul><li>600 text-only questions</li><li>25 evaluated models</li><li>Five fire-safety domains</li></ul>
+            </article>
+            <article class="stage-card reveal">
+              <div class="stage-number">02</div>
+              <p class="stage-label">Understanding</p>
+              <h3>Structured multimodal grounding</h3>
+              <p>Image-text and video-text questions connect visible evidence to fire-safety concepts and risk judgments.</p>
+              <ul><li>50 image-text items</li><li>70 video-text items</li><li>Permutation-robust scoring</li></ul>
+            </article>
+            <article class="stage-card stage-card-accent reveal">
+              <div class="stage-number">03</div>
+              <p class="stage-label">Reasoning</p>
+              <h3>Open-ended scene analysis</h3>
+              <p>Five tasks test current-situation identification, spread, human risk, immediate action and professional reporting.</p>
+              <ul><li>1,000 independent incidents</li><li>Six-dimensional rubrics</li><li>Hybrid expert adjudication</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section evidence-boundary">
+        <div class="container evidence-grid">
+          <div class="quote-mark reveal">“</div>
+          <div class="reveal">
+            <p class="kicker">The Stage 3 test</p>
+            <blockquote>
+              When evidence is incomplete, will a model acknowledge what it cannot know, or generate a
+              professional-sounding and actionable judgment without adequate visual grounding?
+            </blockquote>
+          </div>
+          <div class="boundary-note reveal">
+            <h3>One image, by design</h3>
+            <p>
+              One image is retained from each independent fire incident. This broadens incident coverage,
+              avoids repeatedly weighting image-rich fires and creates the same auditable evidence boundary
+              for every model.
+            </p>
+            <p>
+              MFBench does not assume that one image is sufficient for complete incident assessment. It tests
+              whether models separate observation from inference and report unresolved information.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section figure-section" aria-labelledby="overview-figure-title">
+        <div class="container figure-grid">
+          <div class="figure-copy reveal">
+            <p class="kicker">System overview</p>
+            <h2 id="overview-figure-title">From benchmark diagnosis to governance interpretation</h2>
+            <p>
+              MFBench follows the path from structured knowledge to open-ended analysis, then translates
+              task-specific score profiles into bounded governance hypotheses rather than deployment claims.
+            </p>
+            <button class="text-link figure-open" type="button" data-image="assets/mfbench-overview.webp" data-alt="MFBench benchmark overview figure">
+              View figure at full size <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <button class="figure-frame reveal figure-open" type="button" data-image="assets/mfbench-overview.webp" data-alt="MFBench benchmark overview figure">
+            <img src="assets/mfbench-overview.webp" alt="Overview of the three-stage MFBench benchmark" loading="lazy" />
+            <span>Figure 1 · MFBench overview</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section findings" id="findings">
+        <div class="container findings-grid">
+          <div class="finding-lead reveal">
+            <p class="kicker">Key finding</p>
+            <div class="big-number">36.0<span>%</span></div>
+            <p>
+              of immediate-action responses scoring at least 3 for actionability scored below 3 for
+              human–hazard positional assessment, risk-signal grounding or both.
+            </p>
+          </div>
+          <div class="finding-copy reveal">
+            <h2>Advice can sound useful while remaining weakly tied to visible risk.</h2>
+            <p>
+              Stage 1 and Stage 2 reached high permutation-robust accuracy at the upper end of the model pool.
+              Stage 3 exposed a different limitation: strong action-oriented language did not guarantee that
+              models had grounded their recommendations in visible people, hazards and spatial cues.
+            </p>
+            <div class="finding-badges">
+              <span><b>95.67%</b> Stage 1 maximum</span>
+              <span><b>94.16%</b> Stage 2 maximum</span>
+              <span><b>7</b> Stage 3 models</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container result-figure reveal">
+          <button class="figure-open" type="button" data-image="assets/benchmark-results.webp" data-alt="MFBench benchmark score profiles across three stages">
+            <img src="assets/benchmark-results.webp" alt="Performance of evaluated multimodal models across MFBench stages" loading="lazy" />
+            <span>Open benchmark results</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section governance" id="governance">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="kicker">Governance translation</p>
+            <h2>A consequence-first framework for human oversight</h2>
+            <p>Benchmark scores inform the framework; they do not authorize operational deployment.</p>
+          </div>
+          <div class="tier-grid">
+            <article class="tier-card reveal">
+              <span class="tier-tag">Tier A</span><h3>Low-consequence support</h3>
+              <p>Information assistance and drafting within clear task boundaries, with human review before release.</p>
+            </article>
+            <article class="tier-card tier-mid reveal">
+              <span class="tier-tag">Tier B</span><h3>Expert-verified analysis</h3>
+              <p>Spread, risk and action-related outputs remain advisory and require qualified verification.</p>
+            </article>
+            <article class="tier-card tier-high reveal">
+              <span class="tier-tag">Tier C</span><h3>Non-delegable command</h3>
+              <p>Evacuation orders, entry and suppression strategy, and live resource dispatch remain human decisions.</p>
+            </article>
+          </div>
+          <div class="governance-figure reveal">
+            <button class="figure-open" type="button" data-image="assets/governance-framework.webp" data-alt="MFBench consequence-first governance framework">
+              <img src="assets/governance-framework.webp" alt="The proposed consequence-first governance framework" loading="lazy" />
+              <span>Open governance framework</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resources" id="resources">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="kicker">Open resources</p>
+            <h2>Explore MFBench</h2>
+          </div>
+          <div class="resource-grid">
+            <a class="resource-card reveal" href="https://github.com" target="_blank" rel="noreferrer">
+              <span class="resource-icon">&lt;/&gt;</span><div><small>Repository</small><h3>Code</h3><p>Evaluation scripts, prompts and analysis tools.</p></div><b>↗</b>
+            </a>
+            <a class="resource-card reveal" href="https://huggingface.co" target="_blank" rel="noreferrer">
+              <span class="resource-icon">DATA</span><div><small>Benchmark</small><h3>Dataset</h3><p>Tasks, rubrics, metadata and source records.</p></div><b>↗</b>
+            </a>
+            <a class="resource-card reveal" href="#citation">
+              <span class="resource-icon">PDF</span><div><small>Publication</small><h3>Paper</h3><p>Manuscript details and citation information.</p></div><b>↓</b>
+            </a>
+          </div>
+
+          <div class="citation-card reveal" id="citation">
+            <div>
+              <p class="kicker">Citation</p>
+              <h3>Paper citation will be updated upon public release.</h3>
+              <p>For now, please reference the project by its title and authors.</p>
+            </div>
+            <pre id="bibtex"><code>@misc{zheng2026mfbench,
+  title  = {Task-specific limits of multimodal AI in urban fire-safety governance},
+  author = {Zheng, Hongtao and Ding, Yifei and Zhang, Tianhang and Wang, Meng and Zhang, Yuxin and Huang, Xinyan},
+  year   = {2026},
+  note   = {MFBench project}
+}</code></pre>
+            <button class="copy-button" type="button" data-copy="bibtex">Copy BibTeX</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <a class="brand footer-brand" href="#top"><img src="assets/logo.png" alt="" /><span>MFBench</span></a>
+        <p>Multimodal AI evaluation for accountable urban fire-safety governance.</p>
+        <p>© <span id="year">2026</span> MFBench · <a href="mailto:xy.huang@polyu.edu.hk">Contact</a></p>
+      </div>
+    </footer>
+
+    <dialog class="lightbox" aria-label="Expanded figure">
+      <button class="lightbox-close" type="button" aria-label="Close figure">×</button>
+      <img src="" alt="" />
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
